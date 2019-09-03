@@ -24,8 +24,8 @@ class Scraper
 
     student = {}
 
-    social_links = doc.css(".social-icon-container").children.css("a").map() do | child |
-      child.attribute("href").value()
+    social_links = doc.css(".social-icon-container a").map() do | link |
+      link.attribute("href").value()
     end
 
     social_links.each() do | link |
@@ -47,5 +47,3 @@ class Scraper
   end
 
 end
-
-Scraper.scrape_profile_page("https://learn-co-curriculum.github.io/student-scraper-test-page/students/eric-chu.html")
